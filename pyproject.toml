@@ -1,0 +1,7 @@
+[project]
+name = "fair-stdg-assesment-main"
+version = "0.1.0"
+description = "Fairness assessment of classifiers trained on synthetic tabular data"
+readme = "README.md"
+requires-python = ">=3.10,<3.11"
+dependencies = []

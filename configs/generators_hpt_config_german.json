@@ -1,0 +1,225 @@
+{   
+    "tvae": {
+        "n_iter": {
+            "type": "categorical",
+            "values": [1000]
+        },
+        "lr": {
+            "type": "categorical",
+            "values": [1e-4, 2e-4, 1e-3]
+        },
+        "decoder_n_layers_hidden": {
+            "type": "int",
+            "range": [1, 5],
+            "step": 1
+        },
+        "weight_decay": {
+            "type": "categorical",
+            "values": [1e-4, 1e-3]
+        },
+        "batch_size": {
+            "type": "categorical",
+            "values": [256, 512]
+        },
+        "n_units_embedding": {
+            "type": "int",
+            "range": [50, 500],
+            "step": 50
+        },
+        "decoder_n_units_hidden": {
+            "type": "int",
+            "range": [50, 500],
+            "step": 50
+        },
+        "decoder_nonlin": {
+            "type": "categorical",
+            "values": ["elu", "leaky_relu", "relu", "tanh"]
+        },
+        "decoder_dropout": {
+            "type": "float",
+            "range": [0.0, 0.2]
+        },
+        "encoder_n_layers_hidden": {
+            "type": "int",
+            "range": [1, 5],
+            "step": 1
+        },
+        "encoder_n_units_hidden": {
+            "type": "int",
+            "range": [50, 500],
+            "step": 50
+        },
+        "encoder_nonlin": {
+            "type": "categorical",
+            "values": ["elu", "leaky_relu", "relu", "tanh"]
+        },
+        "encoder_dropout": {
+            "type": "float",
+            "range": [0.0, 0.2]
+        },
+        "patience": {
+            "type": "categorical",
+            "values": [100]
+        },
+        "n_iter_min": {
+            "type": "categorical",
+            "values": [100]
+        }     
+    },
+    "ctgan": {
+        "generator_n_layers_hidden": {
+            "type": "int",
+            "range": [1, 4],
+            "step": 1
+        },
+        "generator_n_units_hidden": {
+            "type": "int",
+            "range": [50, 150],
+            "step": 50
+        },
+        "generator_nonlin": {
+            "type": "categorical",
+            "values": ["elu", "leaky_relu", "relu", "tanh"]
+        },
+        "n_iter": {
+            "type": "categorical",
+            "values": [1000]
+        },
+        "generator_dropout": {
+            "type": "float",
+            "range": [0.0, 0.2]
+        },
+        "discriminator_n_layers_hidden": {
+            "type": "int",
+            "range": [1, 4],
+            "step": 1
+        },
+        "discriminator_n_units_hidden": {
+            "type": "int",
+            "range": [50, 150],
+            "step": 50
+        },
+        "discriminator_nonlin": {
+            "type": "categorical",
+            "values": ["elu", "leaky_relu", "relu", "tanh"]
+        },
+        "discriminator_n_iter": {
+            "type": "int",
+            "range": [1, 5],
+            "step": 1
+        },
+        "discriminator_dropout": {
+            "type": "float",
+            "range": [0.0, 0.2]
+        },
+        "lr": {
+            "type": "categorical",
+            "values": [1e-4, 2e-4, 1e-3]
+        },
+        "weight_decay": {
+            "type": "categorical",
+            "values": [1e-4, 1e-3]
+        },
+        "batch_size": {
+            "type": "categorical",
+            "values": [256, 512]
+        },
+        "encoder_max_clusters": {
+            "type": "int",
+            "range": [2, 20],
+            "step": 1
+        },
+        "patience": {
+            "type": "categorical",
+            "values": [100]
+        },
+        "n_iter_min": {
+            "type": "categorical",
+            "values": [100]
+        }      
+    },
+"ddpm": {
+    "lr": {
+        "type": "loguniform",
+        "range": [0.00001, 0.003]
+    },
+    "batch_size": {
+        "type": "categorical",
+        "values": [256, 512]
+    },
+    "num_timesteps": {
+        "type": "int",
+        "range": [100, 1000],
+        "step": 1
+    },
+    "n_iter": {
+        "type": "categorical",
+        "values": [5000],
+        "step": 1
+    },
+    "n_layers_hidden": {
+        "type": "categorical",
+        "values": [2, 4, 6, 8]
+    },
+    "n_units_hidden": {
+        "type": "categorical",
+        "values": [128, 256, 512, 1024]
+    },
+    "dropout": {
+        "type": "categorical",
+        "values": [0]
+    }
+},
+"arf": {
+    "num_trees": {
+        "type": "int",
+        "range": [10, 100],
+        "step": 10
+    },
+    "delta": {
+        "type": "float",
+        "range": [0, 0.5],
+        "step": 0.1
+    },
+    "max_iters": {
+        "type": "int",
+        "range": [1, 5],
+        "step": 1
+    },
+    "early_stop": {
+        "type": "categorical",
+        "values": [false, true]
+    },
+    "min_node_size": {
+        "type": "int",
+        "range": [3, 20],
+        "step": 1
+    }
+},
+    "ctabgan": {
+        "lr": {
+            "type": "loguniform",
+            "range": [1e-5, 1e-1]
+        },
+        "batch_size": {
+            "type": "categorical",
+            "values": [256, 512]
+        },
+        "epochs": {
+            "type": "categorical",
+            "values": [500]
+        }
+    },
+    "realtabformer": {
+        "batch_size": {
+            "type": "categorical",
+            "values": [8, 16]
+                },
+        "epochs": {
+            "type": "int",
+            "range": [100,100]
+                }
+            }
+}
+
+

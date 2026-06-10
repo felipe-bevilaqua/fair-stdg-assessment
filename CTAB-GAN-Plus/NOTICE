@@ -1,0 +1,18 @@
+Third-party component: CTAB-GAN+
+================================
+
+The contents of this directory are a locally-modified copy of CTAB-GAN+:
+
+  Upstream:  https://github.com/Team-TUD/CTAB-GAN-Plus
+  Paper:     Zhao et al., "CTAB-GAN+: Enhancing Tabular Data Synthesis",
+             arXiv:2204.00401  (https://arxiv.org/abs/2204.00401)
+
+It is redistributed here, with local modifications, solely to reproduce the
+experiments in this repository.
+
+Local modifications relative to upstream
+-----------------------------------------
+- `CTABGAN.__init__` exposes `lr` and `batch_size` (upstream exposes only
+  `epochs`) and no longer reads a CSV path at construction time.
+- `CTABGAN.fit` accepts a DataFrame and `test_ratio` directly.
+- `CTABGANSynthesizer.fit` accepts `lr` and `batch_size`.
