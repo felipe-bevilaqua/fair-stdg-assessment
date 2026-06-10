@@ -17,3 +17,6 @@ README.html
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Backup of original pip freeze
+requirements.full-freeze.txt.bak

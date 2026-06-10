@@ -1,4 +1,4 @@
-# Fairness Assessment and Mitigation of Synthetic Tabular Data Generation
+# Fairness Assessment and Mitigation in Synthetic Tabular Data Generation
 
 This repository contains the experimental code for a study on the **group
 fairness of machine-learning classifiers trained on synthetic tabular data**.
@@ -90,11 +90,7 @@ source .venv/bin/activate
 
 `setup.sh` creates a **Python 3.10** virtual environment (the version the study
 was run on — `torch==1.13.1` does not support newer interpreters), installs the
-pinned dependencies from `requirements.txt`, and creates the directory scaffold.
-
-> **Dependencies:** the authoritative dependency list is `requirements.txt`.
-> `pyproject.toml` is kept only for uv project metadata and does not list the
-> runtime dependencies.
+pinned dependencies from `requirements.txt` and creates folder structure for the project.
 
 ## Usage
 
@@ -114,21 +110,7 @@ python src/generate_data.py --dataset_name adult --model_name ctgan --fold 0
 python src/classifier_fair_exp.py --dataset_name adult --fold 0 --constraint equalized_odds
 ```
 
-All filesystem paths are defined in `src/paths.py` and resolve relative to the
-repository root by default, so the stages run from a fresh clone with no path
-editing. To point the pipeline at a different location (e.g. a data volume),
-set the `MSC_ROOT` environment variable:
-
-```bash
-MSC_ROOT=/mnt/data python src/download_data.py
-```
-
-The tuning stage also optionally uploads results to an S3 bucket when
-`AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` are set; otherwise that step is
-skipped and results are written under `results/` locally.
-
-## Vendored dependency: CTAB-GAN+
-
+## Note on CTAB-GAN+
 `CTAB-GAN-Plus/` is a **locally-modified copy** of
 [Team-TUD/CTAB-GAN-Plus](https://github.com/Team-TUD/CTAB-GAN-Plus)
 (Zhao et al., *CTAB-GAN+: Enhancing Tabular Data Synthesis*,

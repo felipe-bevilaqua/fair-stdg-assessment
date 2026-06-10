@@ -10,6 +10,12 @@
 
 set -euo pipefail
 
+# Resolve the project root (the directory that contains this script) and work
+# from there, so setup.sh can be invoked from any location.
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$PROJECT_ROOT"
+export MSC_ROOT="$PROJECT_ROOT"
+
 # 1. Create the virtual environment (uv downloads Python 3.10 if needed).
 uv venv --python 3.10
 
@@ -22,7 +28,9 @@ mkdir -p results/plots
 mkdir -p models
 
 echo
-echo "Environment ready. Activate it with:  source .venv/bin/activate"
+echo "Environment ready (project root: $PROJECT_ROOT)."
+echo "Activate it with:  source .venv/bin/activate"
 echo
-echo "NOTE: the pipeline scripts use absolute '/home/msc/...' paths. Edit those"
-echo "paths (or run from /home/msc) before executing the steps in the README."
+echo "Paths resolve to the project root automatically. To use a different data"
+echo "location, export MSC_ROOT before running the pipeline, e.g.:"
+echo "  export MSC_ROOT=/mnt/data"
