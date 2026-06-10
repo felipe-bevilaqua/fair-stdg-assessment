@@ -2,12 +2,12 @@
 
 Every path is derived from the repository root. By default the root is the
 parent of this file's directory (i.e. the repo root when running from a clone).
-Set the ``MSC_ROOT`` environment variable to point the pipeline somewhere else.
+Set the ``PROJECT_ROOT`` environment variable to point the pipeline elsewhere.
 """
 import os
 from pathlib import Path
 
-PROJECT_ROOT = Path(os.environ.get("MSC_ROOT", Path(__file__).resolve().parents[1]))
+PROJECT_ROOT = Path(os.environ.get("PROJECT_ROOT", Path(__file__).resolve().parents[1]))
 
 # Data
 DATA_DIR = PROJECT_ROOT / "data"

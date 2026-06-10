@@ -71,7 +71,7 @@ src/
   classifier_fair_exp.py  # stage 4: fairness/utility experiment
   data_generator.py       # unified wrapper over all generative models
   utils.py                # preprocessing, classifiers, metrics, plots
-  paths.py                # central filesystem paths (override with MSC_ROOT)
+  paths.py                # central filesystem paths (override with PROJECT_ROOT)
 configs/                  # dataset + per-dataset HPT search-space configs
 CTAB-GAN-Plus/            # vendored, locally-patched CTAB-GAN+ (see below)
 requirements.txt          # pinned dependencies (the source of truth)
