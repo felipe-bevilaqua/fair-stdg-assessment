@@ -9,7 +9,7 @@ mitigation algorithms, what happens to downstream classifier *utility* and
 *group fairness*? 
 
 The pipeline tunes a range of generative models, produces
-synthetic versions of several benchmark datasets, trains classifiers on them,
+synthetic versions of several fairness benchmark datasets, trains classifiers on them,
 and evaluates the resulting fairness/utility trade-off against models trained
 on the real data.
 
@@ -45,7 +45,7 @@ The experiment runs in four stages:
 ### Generative models
 
 `tvae`, `ctgan`, `ddpm`, `arf` (via [synthcity](https://github.com/vanderschaarlab/synthcity)),
-`realtabformer`, `be_great`, and `ctabgan` (vendored — see below).
+`realtabformer`, `be_great`, and `ctabgan`
 
 ### Fairness mitigation methods
 
@@ -88,35 +88,26 @@ Install uv, then run:
 source .venv/bin/activate
 ```
 
-`setup.sh` creates a **Python 3.10** virtual environment (the version the study
-was run on — `torch==1.13.1` does not support newer interpreters), installs the
-pinned dependencies from `requirements.txt` and creates folder structure for the project.
+`setup.sh` creates a **Python 3.10** virtual environment, installs the
+dependencies from `requirements.txt` and creates folder structure for the project.
 
 ## Usage
 
 Run the stages in order (examples use the Adult dataset, fold 0):
 
 ```bash
-# Stage 1 — download datasets and build fold indexes
+# download datasets and build fold indexes
 python src/download_data.py
 
-# Stage 2 — tune a generator (e.g. CTGAN) for a given dataset/fold
+# tune a generator (e.g. CTGAN) for a given dataset/fold
 python src/generators_tuning.py --dataset_name adult --model_name ctgan --fold 0 --n_trials 20
 
-# Stage 3 — regenerate the best synthetic data
+# regenerate the best synthetic data from the tuning stage
 python src/generate_data.py --dataset_name adult --model_name ctgan --fold 0
 
-# Stage 4 — run the fairness experiment
+# run the fairness experiment
 python src/classifier_fair_exp.py --dataset_name adult --fold 0 --constraint equalized_odds
 ```
 
 ## Note on CTAB-GAN+
-`CTAB-GAN-Plus/` is a **locally-modified copy** of
-[Team-TUD/CTAB-GAN-Plus](https://github.com/Team-TUD/CTAB-GAN-Plus)
-(Zhao et al., *CTAB-GAN+: Enhancing Tabular Data Synthesis*,
-[arXiv:2204.00401](https://arxiv.org/abs/2204.00401)). It is vendored rather
-than installed because the study relies on local patches (exposing `lr` and
-`batch_size`, and a `fit(df, ...)` signature) that are not present upstream.
-Upstream does not publish an explicit license; attribution and the licensing
-caveat are recorded in `CTAB-GAN-Plus/NOTICE`, and this code is not covered by
-the repository's top-level MIT license.
+`CTAB-GAN-Plus/` is a **locally-modified copy** of [Team-TUD/CTAB-GAN-Plus](https://github.com/Team-TUD/CTAB-GAN-Plus) (Zhao et al., *CTAB-GAN+: Enhancing Tabular Data Synthesis*,[arXiv:2204.00401](https://arxiv.org/abs/2204.00401)). We include a local copy rather than installing from upstream due to small changes done to adapt this codebase to the experiment pipeline (exposed lr and batch_size parameters and a .fit(df) functionality)
