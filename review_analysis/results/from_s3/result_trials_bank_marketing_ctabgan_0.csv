@@ -1,0 +1,2 @@
+,lr,batch_size,epochs,Accuracy,F1-Score,MCC,AUC,Demographic Disparity,Equalized Odds,Equality of Opportunity,Predictive Equality,dcr_mean,dcr_q05,mmd_syn_real,running_time
+0,0.0015676677195506068,512,500,0.11700951117009512,0.0,0.0,0.5,0.0,0.0,0.0,0.0,2.458911677919284,1.6679327338108285,0.3961738381413902,11355.63661980629

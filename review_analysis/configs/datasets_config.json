@@ -1,0 +1,42 @@
+{
+    "german":{
+        "target_col": "class-label",
+        "target_value": 2,
+        "sensitive_col": "sex",
+        "sensitive_value": "female",
+        "sensitive_value_type": "Protected"
+      },
+    "compas":{
+        "target_col": "two_year_recid",
+        "target_value": 1,
+        "sensitive_col": "race",
+        "sensitive_value": "Caucasian",
+        "sensitive_value_type": "Privileged"
+      },
+    "adult":{
+        "target_col":"income",
+        "target_value": " >50K",
+        "sensitive_col": "sex",
+        "sensitive_value": " Female",
+        "sensitive_value_type": "Protected"
+      },
+      "bank_marketing":{
+        "target_col":"y",
+        "target_value": 2,
+        "sensitive_col": "age",
+        "sensitive_value": 0,
+        "sensitive_value_type": "Protected"
+      },
+      "diabetes":{
+        "target_col":"readmit_30_days",
+        "target_value": 1,
+        "sensitive_col": "gender",
+        "sensitive_value": "Female"
+      },
+      "credit_card":{
+        "target_col":"y",
+        "target_value": 1,
+        "sensitive_col": "x2",
+        "sensitive_value": 2
+      }
+}
